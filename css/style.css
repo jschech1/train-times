@@ -27,8 +27,8 @@ button {
 }
 
 .display-4 {
-    margin-top: -70px;
-    font-family: 'Patua One', cursive;
+    margin-top: -60px;
+    font-family: 'Courgette', cursive;
     margin-left: 570px;
 }
 
@@ -53,6 +53,7 @@ h3{
     color: #fff;
     background-color: #3fb0ac;
     border-color: #0e8088;
+    margin-left: 15px;
 }
 
 .btn-primary:hover {
