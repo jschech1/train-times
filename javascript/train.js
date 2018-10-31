@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    // Initialize Firebase
+    // Firebase
     var config = {
         apiKey: "AIzaSyBiekwmpIsh8QhS9zGnG8WbRq05A-qGbS4",
         authDomain: "train-times-860f1.firebaseapp.com",
@@ -13,11 +13,11 @@ $(document).ready(function () {
 
     var database = firebase.database();
 
-    // 2. Button for adding Trains
+    // Submit button
     $("#add-train").on("click", function (event) {
         event.preventDefault();
 
-        // Grabs user input
+        // Input fields
         var trainName = $("#train-name-input").val().trim();
         var destination = $("#destination-input").val().trim();
         var firstTime = $("#first-train-input").val().trim();
@@ -31,7 +31,7 @@ $(document).ready(function () {
         // var empStart = moment($("#start-input").val().trim(), "MM/DD/YYYY").format("X");
         // var empRate = $("#rate-input").val().trim();
 
-        // Creates local "temporary" object for holding employee data
+        // Holder for employee data
         var newTrain = {
             trainName: trainName,
             destination: destination,
@@ -39,10 +39,10 @@ $(document).ready(function () {
             tFrequency: tFrequency
         };
 
-        // Uploads employee data to the database
+        // Uploads employee data
         database.ref().push(newTrain);
 
-        // Logs everything to console
+        // Console log
         console.log(newTrain.trainName);
         console.log(newTrain.destination);
         console.log(newTrain.firstTime);
@@ -50,24 +50,24 @@ $(document).ready(function () {
 
         alert("Train successfully added");
 
-        // Clears all of the text-boxes
+        // Clear
         $("#train-name-input").val("");
         $("#destination-input").val("");
         $("#first-train-input").val("");
         $("#frequency-input").val("");
     });
 
-    // 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
+    
     database.ref().on("child_added", function (childSnapshot) {
         console.log(childSnapshot.val());
 
-        // Store everything into a variable.
+        // Store variables
         var trainName = childSnapshot.val().trainName;
         var destination = childSnapshot.val().destination;
         var firstTime = childSnapshot.val().firstTime;
         var tFrequency = childSnapshot.val().tFrequency;
 
-        // Train Info
+       
         console.log(trainName);
         console.log(destination);
         console.log(firstTime);
@@ -94,7 +94,7 @@ $(document).ready(function () {
         // console.log(moment(nextTrain).format("hh:mm"));
         console.log(nextTrain);
 
-        // Create the new row
+        // Create rows
         var newRow = $("<tr>").append(
             $("<td>").text(trainName),
             $("<td>").text(destination),
@@ -109,7 +109,7 @@ $(document).ready(function () {
         // $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
         //     tFrequency + "</td><td></td><td></td></tr>");
 
-        // Append the new row to the table
+        // Append row
         $("#rows-here  > tbody").append(newRow);
     });
 
