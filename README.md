@@ -1,3 +1,8 @@
-# train-times
-## this app allows users to input a train name, start time, destination and frequency, and then calculates how far away and at what time the next train will arrive.
-### users can help with this project by making the text in the table more readable. 
+# Train Time Scheduler
+
+## This app allows users to retrieve and manipulate this information with Moment.js by providing train arrival times and how many minutes remain until they arrive at their station.
+
+## The user will input the train name, destination, start time of the train, and its frequency. The form then produces data,  when the next arrival is and how many minutes that is. I used JavaScript to build this application's functionality. I also used Firebase for instituting data storage.
+
+## Page Link: https://jschech1.github.io/train-times/
+
